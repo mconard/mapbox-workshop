@@ -58,33 +58,33 @@
               mapboxgl.accessToken = 'pk.eyJ1IjoibWNvbmFyZCIsImEiOiJjank2bmJxYTgwazNzM2JwZnBwbTltaTdoIn0.daMaUqvTIMh2yf_nq3PJUg';
               var map = new mapboxgl.Map({
               container: 'map',
-              style: 'mapbox://styles/mapbox/streets-v11',
-              zoom: 15,
-              center: [-71.97722138410576, -13.517379300798098]
+              style: 'mapbox.terrain-rgb',
+              zoom: 8,
+              center: [34.402,-84.055]
               });
 
               map.on('load', function () {
-              map.addSource('museums', {
-                type: 'vector',
-                url: 'mapbox://mapbox.2opop9hr'
+              map.addSource('Coordinates_Sites_coded', {
+                type: 'raster',
+                url: 'mapbox.terrain-rgb'
               });
               map.addLayer({
-                'id': 'museums',
+                'id': 'historic sites',
                 'type': 'circle',
-                'source': 'museums',
+                'source': 'Coordinates_Sites_coded',
                 'layout': {
                 'visibility': 'visible'
               },
                 'paint': {
-                  'circle-radius': 8,
+                  'circle-radius': 5,
                   'circle-color': 'rgba(55,148,179,1)'
               },
-              'source-layer': 'museum-cusco'
+              'source-layer': 'Coordinates_Sites_coded'
               });
 
               map.addSource('contours', {
-                type: 'vector',
-                url: 'mapbox://mapbox.mapbox-terrain-v2'
+                type: 'raster',
+                url: 'mapbox.terrain-rgb'
               });
               map.addLayer({
                 'id': 'contours',
