@@ -63,77 +63,76 @@
               center: [34.402,-84.055]
               });
 
-              map.on('load', function () {
-              map.addSource('Coordinates_Sites_coded', {
-                type: 'vector',
-                url: 'mapbox://mapbox.2opop9hr'
-              });
-              map.addLayer({
-                'id': 'historic sites',
-                'type': 'circle',
-                'source': 'Coordinates_Sites_coded',
-                'layout': {
-                'visibility': 'visible'
-              },
-                'paint': {
-                  'circle-radius': 5,
-                  'circle-color': 'rgba(55,148,179,1)'
-              },
-              'source-layer': 'Coordinates_Sites_coded'
-              });
+               map.on('load', function () {
+          map.addSource('sites', {
+            type: 'vector',
+            url: 'mapbox://mconard.cjy7z41mj3i342ipkyz7jif9r-5aexy
+          });
+          map.addLayer({
+            'id': 'sites',
+            'type': 'circle',
+            'source': 'museums',
+            'layout': {
+            'visibility': 'visible'
+          },
+            'paint': {
+              'circle-radius': 8,
+              'circle-color': 'rgba(55,148,179,1)'
+          },
+          'source-layer': 'Coordinates_Sites_coded'
+          });
 
-              map.addSource('contours', {
-                type: 'vector',
-                url: 'mapbox://mapbox.mapbox-terrain-v2'
-              });
-              map.addLayer({
-                'id': 'contours',
-                'type': 'line',
-                'source': 'contours',
-                'source-layer': 'contour',
-                'layout': {
-                  'visibility': 'visible',
-                  'line-join': 'round',
-                  'line-cap': 'round'
-                },
-                'paint': {
-                  'line-color': '#877b59',
-                  'line-width': 1
-              }
-              });
-              });
+          map.addSource('contours', {
+            type: 'vector',
+            url: 'mapbox://mapbox.mapbox-terrain-v2'
+          });
+          map.addLayer({
+            'id': 'contours',
+            'type': 'line',
+            'source': 'contours',
+            'source-layer': 'contour',
+            'layout': {
+              'visibility': 'visible',
+              'line-join': 'round',
+              'line-cap': 'round'
+            },
+            'paint': {
+              'line-color': '#877b59',
+              'line-width': 1
+          }
+          });
+          });
 
-              var toggleableLayerIds = [ 'contours', 'Historic Sites' ];
+          var toggleableLayerIds = [ 'contours', 'Sites' ];
 
-              for (var i = 0; i < toggleableLayerIds.length; i++) {
-              var id = toggleableLayerIds[i];
+          for (var i = 0; i < toggleableLayerIds.length; i++) {
+          var id = toggleableLayerIds[i];
 
-              var link = document.createElement('a');
-                link.href = '#';
-                link.className = 'active';
-                link.textContent = id;
+          var link = document.createElement('a');
+            link.href = '#';
+            link.className = 'active';
+            link.textContent = id;
 
-              link.onclick = function (e) {
-                var clickedLayer = this.textContent;
-                e.preventDefault();
-                e.stopPropagation();
+          link.onclick = function (e) {
+            var clickedLayer = this.textContent;
+            e.preventDefault();
+            e.stopPropagation();
 
-              var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
+          var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
 
-              if (visibility === 'visible') {
-                map.setLayoutProperty(clickedLayer, 'visibility', 'none');
-                this.className = '';
-                } else {
-                this.className = 'active';
-                map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
-                }
-              };
+          if (visibility === 'visible') {
+            map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+            this.className = '';
+            } else {
+            this.className = 'active';
+            map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+            }
+          };
 
-              var layers = document.getElementById('menu');
-                layers.appendChild(link);
-              }
+          var layers = document.getElementById('menu');
+            layers.appendChild(link);
+          }
 
-            </script>
-        </body>
-    </html>
-
+        </script>
+    </body>
+</html>
