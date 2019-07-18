@@ -60,13 +60,13 @@
               container: 'map',
               style: 'mapbox://styles/mapbox/streets-v1',
               zoom: 8,
-              center: [34.402,-84.055]
+              center: [34.4025,-84.0555]
               });
 
           map.on('load', function () {
           map.addSource('sites', {
             type: 'vector',
-            url: 'mapbox://mapbox.cjy7z41mj3i342ipkyz7jif9r'
+            url: 'https://studio.mapbox.com/datasets/mconard/cjy7z41mj3i342ipkyz7jif9r'
           });
           map.addLayer({
             'id': 'sites',
