@@ -58,7 +58,7 @@
               mapboxgl.accessToken = 'pk.eyJ1IjoibWNvbmFyZCIsImEiOiJjank2bmJxYTgwazNzM2JwZnBwbTltaTdoIn0.daMaUqvTIMh2yf_nq3PJUg';
               var map = new mapboxgl.Map({
               container: 'map',
-              style: 'mapbox.terrain-rgb',
+              style: 'mapbox://styles/mapbox/streets-v1',
               zoom: 8,
               center: [34.402,-84.055]
               });
@@ -103,7 +103,7 @@
               });
               });
 
-              var toggleableLayerIds = [ 'contours', 'museums' ];
+              var toggleableLayerIds = [ 'contours', 'Historic Sites' ];
 
               for (var i = 0; i < toggleableLayerIds.length; i++) {
               var id = toggleableLayerIds[i];
