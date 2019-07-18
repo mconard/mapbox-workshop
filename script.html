@@ -66,12 +66,12 @@
                map.on('load', function () {
           map.addSource('sites', {
             type: 'vector',
-            url: 'mapbox://mconard.cjy7z41mj3i342ipkyz7jif9r-5aexy
+            url: 'mapbox://mapbox.2opop9hr'
           });
           map.addLayer({
             'id': 'sites',
             'type': 'circle',
-            'source': 'museums',
+            'source': 'sites',
             'layout': {
             'visibility': 'visible'
           },
@@ -79,7 +79,7 @@
               'circle-radius': 8,
               'circle-color': 'rgba(55,148,179,1)'
           },
-          'source-layer': 'Coordinates_Sites_coded'
+          'source-layer': 'Coordinates_Sites_coded.csv'
           });
 
           map.addSource('contours', {
