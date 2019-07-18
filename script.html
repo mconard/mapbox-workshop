@@ -63,7 +63,7 @@
               center: [34.402,-84.055]
               });
 
-               map.on('load', function () {
+          map.on('load', function () {
           map.addSource('sites', {
             type: 'vector',
             url: 'mapbox://mapbox.2opop9hr'
@@ -79,7 +79,7 @@
               'circle-radius': 8,
               'circle-color': 'rgba(55,148,179,1)'
           },
-          'source-layer': 'Coordinates_Sites_coded.csv'
+          'source-layer': 'Coordinates_Sites_coded'
           });
 
           map.addSource('contours', {
