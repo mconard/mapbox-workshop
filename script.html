@@ -65,8 +65,8 @@
 
               map.on('load', function () {
               map.addSource('Coordinates_Sites_coded', {
-                type: 'raster',
-                url: 'mapbox.terrain-rgb'
+                type: 'vector',
+                url: 'mapbox://mapbox.2opop9hr'
               });
               map.addLayer({
                 'id': 'historic sites',
@@ -83,8 +83,8 @@
               });
 
               map.addSource('contours', {
-                type: 'raster',
-                url: 'mapbox.terrain-rgb'
+                type: 'vector',
+                url: 'mapbox://mapbox.mapbox-terrain-v2'
               });
               map.addLayer({
                 'id': 'contours',
