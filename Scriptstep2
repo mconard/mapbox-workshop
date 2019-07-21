@@ -46,6 +46,19 @@
               'fill-color': "#3399FF",
               'fill-opacity': 0.5}	});
 	  });
+	  
+	  map.on('load', function () {
+          map.addSource('contoursUS.png', {
+            type: 'png',
+            data: 'https://raw.githubusercontent.com/mconard/mapbox-workshop/master/contoursUS.png'
+          });
+          map.addLayer({
+            'id': 'countoursUS.png',
+            'type': 'fill',
+            'source': 'contoursUS.png',
+            'layout': {
+            'visibility': 'visible'
+	  });
 
 var toggleableLayerIds = [ 'custom.geo.json', 'other' ];
 
