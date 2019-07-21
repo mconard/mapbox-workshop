@@ -44,7 +44,7 @@
           },
             'paint': {
               'circle-radius': 8,
-              'circle-color': 'rgba(55,148,179,1)
+              'fill-color': 'rgba(55,148,179,1)
 	  }
 	  });
           });
