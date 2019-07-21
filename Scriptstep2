@@ -31,14 +31,14 @@
             });
 
 	map.on('load', function () {
-          map.addSource('state_boundaries.json', {
-            type: 'csv',
-            url: 'https://raw.githubusercontent.com/mconard/mapbox-workshop/master/state_boundaries.json'
+          map.addSource('custom.geo.json', {
+            type: 'geo.json',
+            url: 'https://raw.githubusercontent.com/mconard/mapbox-workshop/master/custom.geo.json'
           });
           map.addLayer({
-            'id': 'state_boundaries',
+            'id': 'custom.geo.json',
             'type': 'circle',
-            'source': 'state_boundaries.json',
+            'source': 'custom.geo.json',
             'layout': {
             'visibility': 'visible'
           },
