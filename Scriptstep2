@@ -47,17 +47,21 @@
               'fill-opacity': 0.5}	});
 	  });
 	  
-	  map.on('load', function () {
-          map.addSource('contoursUS.png', {
-            type: 'png',
-            data: 'https://raw.githubusercontent.com/mconard/mapbox-workshop/master/contoursUS.png'
+	 map.on('load', function () {
+          map.addSource('countours.geojson', {
+            type: 'geojson',
+            data: 'https://github.com/mconard/mapbox-workshop/blob/master/countours.geojson'
           });
           map.addLayer({
-            'id': 'countoursUS.png',
-            'type': 'fill',
-            'source': 'contoursUS.png',
+            'id': 'countours.geojson',
+            'type': 'raster',
+            'source': 'countours.geojson',
             'layout': {
             'visibility': 'visible'
+          },
+            'paint': {
+              'fill-color': "#000000",
+              'fill-opacity': 0.5}	});
 	  });
 
 var toggleableLayerIds = [ 'custom.geo.json', 'other' ];
