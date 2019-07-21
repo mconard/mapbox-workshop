@@ -33,12 +33,12 @@
 	map.on('load', function () {
           map.addSource('Coordinates_Sites_coded', {
             type: 'csv',
-            url: 'https://raw.githubusercontent.com/mconard/mapbox-workshop/master/Coordinates_Sites_coded.csv'
+            url: 'https://raw.githubusercontent.com/mconard/mapbox-workshop/master/Arch_sites'
           });
           map.addLayer({
-            'id': 'Sites',
+            'id': 'Arch_sites',
             'type': 'circle',
-            'source': 'Coordinates_Sites_coded',
+            'source': 'Arch_sites',
             'layout': {
             'visibility': 'visible'
           },
@@ -46,7 +46,7 @@
               'circle-radius': 8,
               'circle-color': 'rgba(55,148,179,1)'
           },
-          'source-layer': 'Coordinates_Sites_coded'
+          'source-layer': 'Arch_sites'
           });
           </script>
       </body
