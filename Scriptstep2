@@ -26,8 +26,8 @@
             //  'mapbox://styles/mapbox/outdoors-v10'  
             //  'mapbox://styles/mapbox/satellite-v10' 
             //  'mapbox://styles/mapbox/traffic-night-v2'
-            center: [-84.1835, 34.5165], // change starting position to coordinates associated w/ your data.
-            zoom: 8 // starting zoom
+            center: [-72.8685, 46.5895], // change starting position to coordinates associated w/ your data.
+            zoom: 2 // starting zoom
             });
 
 	map.on('load', function () {
@@ -44,7 +44,7 @@
           },
             'paint': {
               'fill-color': "#000000",
-              'fill-opacity': 1}	});
+              'fill-opacity': 0.5}	});
 	  });
 	  
 	  var toggleableLayerIds = [ 'custom.geo.json', 'other' ];
