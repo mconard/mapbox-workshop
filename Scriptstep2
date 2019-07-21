@@ -33,7 +33,7 @@
 	map.on('load', function () {
           map.addSource('custom.geo.json', {
             type: 'geojson',
-            url: 'https://raw.githubusercontent.com/mconard/mapbox-workshop/master/custom.geo.json'
+            data: 'https://raw.githubusercontent.com/mconard/mapbox-workshop/master/custom.geo.json'
           });
           map.addLayer({
             'id': 'custom.geo.json',
@@ -43,9 +43,8 @@
             'visibility': 'visible'
           },
             'paint': {
-              'circle-radius': 8,
-              'fill-color': 'rgba(55,148,179,1)
-	  }
+              'fill-color': "#000000",
+              'fill-opacity': 1}	});
 	  });
           </script>
       </body>
