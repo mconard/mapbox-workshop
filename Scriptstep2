@@ -43,11 +43,13 @@
             'visibility': 'visible'
           },
             'paint': {
-              'fill-color': "#000000",
+              'fill-color': "#3399FF",
               'fill-opacity': 0.5}	});
+	  }
 	  });
-	  
-	  var toggleableLayerIds = [ 'custom.geo.json', 'other' ];
+	  });
+
+var toggleableLayerIds = [ 'custom.geo.json', 'other' ];
 
           for (var i = 0; i < toggleableLayerIds.length; i++) {
           var id = toggleableLayerIds[i];
@@ -76,6 +78,6 @@
           var layers = document.getElementById('menu');
             layers.appendChild(link);
           }
-	  
+
           </script>
       </body>
