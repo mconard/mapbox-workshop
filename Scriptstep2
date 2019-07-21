@@ -49,7 +49,7 @@
 	  
 	 map.on('load', function () {
           map.addSource('countours.geojson', {
-            type: 'geojson',
+            type: 'raster',
             data: 'https://github.com/mconard/mapbox-workshop/blob/master/countours.geojson'
           });
           map.addLayer({
