@@ -45,8 +45,7 @@
             'paint': {
               'circle-radius': 8,
               'circle-color': 'rgba(55,148,179,1)'
-          },
-          'source-layer': 'state_boundaries.json'
           });
           </script>
-      </body
+      </body>
+</html>
