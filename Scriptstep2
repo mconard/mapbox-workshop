@@ -45,7 +45,6 @@
             'paint': {
               'fill-color': "#3399FF",
               'fill-opacity': 0.5}	});
-	  }
 	  });
 	  });
 
