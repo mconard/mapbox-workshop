@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
     <html>
       <head>
           <meta charset='utf-8' />
@@ -44,8 +44,7 @@
           },
             'paint': {
               'circle-radius': 8,
-              'circle-color': 'rgba(55,148,179,1)'
-	}
+              'circle-color': 'rgba(55,148,179,1)
           });
           </script>
       </body>
