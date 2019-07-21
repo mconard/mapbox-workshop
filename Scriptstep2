@@ -31,14 +31,14 @@
             });
 
 	map.on('load', function () {
-          map.addSource('Coordinates_Sites_coded', {
+          map.addSource('state_boundaries.json', {
             type: 'csv',
-            url: 'https://raw.githubusercontent.com/mconard/mapbox-workshop/master/Arch_sites'
+            url: 'https://raw.githubusercontent.com/mconard/mapbox-workshop/master/state_boundaries.json'
           });
           map.addLayer({
-            'id': 'Arch_sites',
+            'id': 'state_boundaries',
             'type': 'circle',
-            'source': 'Arch_sites',
+            'source': 'state_boundaries.json',
             'layout': {
             'visibility': 'visible'
           },
@@ -46,7 +46,7 @@
               'circle-radius': 8,
               'circle-color': 'rgba(55,148,179,1)'
           },
-          'source-layer': 'Arch_sites'
+          'source-layer': 'state_boundaries.json'
           });
           </script>
       </body
