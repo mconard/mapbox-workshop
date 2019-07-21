@@ -32,12 +32,12 @@
 
 	map.on('load', function () {
           map.addSource('custom.geo.json', {
-            type: 'geo.json',
+            type: 'geojson',
             url: 'https://raw.githubusercontent.com/mconard/mapbox-workshop/master/custom.geo.json'
           });
           map.addLayer({
             'id': 'custom.geo.json',
-            'type': 'circle',
+            'type': 'fill',
             'source': 'custom.geo.json',
             'layout': {
             'visibility': 'visible'
@@ -45,6 +45,8 @@
             'paint': {
               'circle-radius': 8,
               'circle-color': 'rgba(55,148,179,1)
+	  }
+	  });
           });
           </script>
       </body>
