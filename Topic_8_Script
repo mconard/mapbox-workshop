@@ -30,9 +30,10 @@
             zoom: 2 // starting zoom
             });
 
-	 map.addSource('custom.geo.json', {
+		map.on('load', function () {
+          map.addSource('custom.geo.json', {
             type: 'geojson',
-            data: 'https://raw.githubusercontent.com/mconard/mapbox-workshop/master/custom.geo.json'
+            data: 'https://github.com/mconard/mapbox-workshop/blob/master/custom.geo.json'
           });
           map.addLayer({
             'id': 'custom.geo.json',
@@ -42,8 +43,9 @@
             'visibility': 'visible'
           },
             'paint': {
-              'fill-color': "#000000",
-                   'fill-opacity': 1}          });
-        });
+              'fill-color': "#3399FF",
+              'fill-opacity': 0.5}	});
+	  });
+	  
           </script>
       </body>
