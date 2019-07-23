@@ -30,7 +30,7 @@
             zoom: 2 // starting zoom
             });
 
-		map.on('load', function () {
+	map.on('load', function () {
           map.addSource('custom.geo.json', {
             type: 'geojson',
             data: 'https://github.com/mconard/mapbox-workshop/blob/master/custom.geo.json'
