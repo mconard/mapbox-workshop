@@ -43,23 +43,6 @@
             'visibility': 'visible'
           },
             'paint': {
-              'fill-color': "#3399FF",
-              'fill-opacity': 0.5}	});
-	  });
-
-map.on('load', function () {
-          map.addSource('countours.geojson', {
-            type: 'raster',
-            data: 'https://github.com/mconard/mapbox-workshop/blob/master/countours.geojson'
-          });
-          map.addLayer({
-            'id': 'countours.geojson',
-            'type': 'fill',
-            'source': 'countours.geojson',
-            'layout': {
-            'visibility': 'visible'
-          },
-            'paint': {
               'fill-color': "#99FF33",
               'fill-opacity': 0.5}	});
 	  });
