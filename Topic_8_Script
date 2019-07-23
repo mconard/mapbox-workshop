@@ -33,7 +33,7 @@
 	map.on('load', function () {
           map.addSource('northamerica.geo.json', {
             type: 'geojson',
-            data: 'https://github.com/mconard/mapbox-workshop/blob/master/northamerica.geo.json'
+            data: 'https://raw.githubusercontent.com/mconard/mapbox-workshop/master/northamerica.geo.json'
           });
           map.addLayer({
             'id': 'northamerica.geo.json',
