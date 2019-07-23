@@ -31,14 +31,14 @@
             });
 
 	map.on('load', function () {
-          map.addSource('custom.geo.json', {
+          map.addSource('northamerica.geo.json', {
             type: 'geojson',
-            data: 'https://github.com/mconard/mapbox-workshop/blob/master/custom.geo.json'
+            data: 'https://github.com/mconard/mapbox-workshop/blob/master/northamerica.geo.json'
           });
           map.addLayer({
-            'id': 'custom.geo.json',
+            'id': 'northamerica.geo.json',
             'type': 'fill',
-            'source': 'custom.geo.json',
+            'source': 'northamerica.geo.json',
             'layout': {
             'visibility': 'visible'
           },
