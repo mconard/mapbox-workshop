@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+    <html>
+      <head>
+          <meta charset='utf-8' />
+          <title>Mapbox GL Workshop</title>
+          <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+          <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
+          <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css' rel='stylesheet' />
+          <style>
+            body { margin:0; padding:0; }
+            #map { position:absolute; top:0; bottom:0; width:100%; }
+          </style>
+      </head>
+      <body>
+          <div id='map'></div>
+          <script>
+            mapboxgl.accessToken = 'pk.eyJ1IjoibWNvbmFyZCIsImEiOiJjank2bmJxYTgwazNzM2JwZnBwbTltaTdoIn0.daMaUqvTIMh2yf_nq3PJUg'
+
+            var map = new mapboxgl.Map({
+            container: 'map', // container id
+            style: 'mapbox://styles/mapbox/streets-v10', //hosted style id;  
+            //others: 
+            //  'mapbox://styles/mapbox/light-v10'
+            //  'mapbox://styles/mapbox/streets-v10' 
+            //  'mapbox://styles/mapbox/dark-v10'
+            //  'mapbox://styles/mapbox/outdoors-v10'  
+            //  'mapbox://styles/mapbox/satellite-v10' 
+            //  'mapbox://styles/mapbox/traffic-night-v2'
+            center: [-72.8685, 46.5895], // change starting position to coordinates associated w/ your data.
+            zoom: 2 // starting zoom
+            });
+
+	map.on('load', function () {
+          map.addSource('custom.geo.json', {
+            type: 'geojson',
+            data: 'https://github.com/mconard/mapbox-workshop/blob/master/custom.geo.json'
+          });
+          map.addLayer({
+            'id': 'custom.geo.json',
+            'type': 'fill',
+            'source': 'custom.geo.json',
+            'layout': {
+            'visibility': 'visible'
+          },
+            'paint': {
+              'fill-color': "#3399FF",
+              'fill-opacity': 0.5}	});
+	  });
+
+map.on('load', function () {
+          map.addSource('countours.geojson', {
+            type: 'raster',
+            data: 'https://github.com/mconard/mapbox-workshop/blob/master/countours.geojson'
+          });
+          map.addLayer({
+            'id': 'countours.geojson',
+            'type': 'fill',
+            'source': 'countours.geojson',
+            'layout': {
+            'visibility': 'visible'
+          },
+            'paint': {
+              'fill-color': "#99FF33",
+              'fill-opacity': 0.5}	});
+	  });
+
+var toggleableLayerIds = [ 'custom.geo.json', 'contoursUS.png' ];
+
+          for (var i = 0; i < toggleableLayerIds.length; i++) {
+          var id = toggleableLayerIds[i];
+
+          var link = document.createElement('a');
+            link.href = '#';
+            link.className = 'active';
+            link.textContent = id;
+
+          link.onclick = function (e) {
+            var clickedLayer = this.textContent;
+            e.preventDefault();
+            e.stopPropagation();
+
+          var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
+
+          if (visibility === 'visible') {
+            map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+            this.className = '';
+            } else {
+            this.className = 'active';
+            map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+            }
+          };
+
+          var layers = document.getElementById('menu');
+            layers.appendChild(link);
+          }
+
+          </script>
+      </body>
