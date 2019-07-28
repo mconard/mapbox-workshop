@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+    <html>
+      <head>
+          <meta charset='utf-8' />
+          <title>Mapbox GL Workshop</title>
+          <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+          <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
+          <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css' rel='stylesheet' />
+          <style>
+            body { margin:0; padding:0; }
+            #map { position:absolute; top:0; bottom:0; width:100%; }
+            #menu {
+              position: absolute;
+              top: 10px;
+              left: 10px;
+              width: 165px;
+              cursor: pointer;
+              display: inline-table;
+              text-transform: uppercase;
+              background-color: #b1bbdb;
+            }
+            #menu li {
+              margin: 0;
+              padding: 0;
+            }
+            #menu a {
+              font-size: 12px;
+              color: #131414;
+              float: left;
+              text-align: center;
+              padding: 10px 0px;
+              text-decoration: none;
+              position: relative;
+              display: inline-table;
+              width: 165px;
+              text-transform: uppercase;
+              font-weight: bold;
+            }
+            #menu a:last-child {
+                border: none;
+            }
+            #menu a:hover {
+              background-color: #b1bbdb;
+              color: #53585A;
+            }
+            #menu a.active {
+              background-color: rgba(62,87,166, 0.6);
+              color: #131414;
+            }
+            #menu a.active:hover {
+                background: rgba(62,87,166, 0.6);
+            }
+          </style>
+      </head>
+      <body>
+        <div id='map'></div>
+        <nav id='menu'></nav>
+      <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoibWNvbmFyZCIsImEiOiJjank2bmJxYTgwazNzM2JwZnBwbTltaTdoIn0.daMaUqvTIMh2yf_nq3PJUg'
+
+        var map = new mapboxgl.Map({
+        container: 'map', // container id
+        style: {
+          "version": 8,
+            "sources": {
+              "raster-tiles": {
+                "type": "raster",
+                "tiles": ["https://stamen-tiles.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg"],
+                "tileSize": 256,
+                "attribution": 'Map tiles by <a target="_top" rel="noopener" href="http://stamen.com">Stamen Design</a>, under <a target="_top" rel="noopener" href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a target="_top" rel="noopener" href="http://openstreetmap.org">OpenStreetMap</a>, under <a target="_top" rel="noopener" href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>'
+              }
+            },
+            "layers": [{
+              "id": "simple-tiles",
+              "type": "raster",
+              "source": "raster-tiles",
+              "minzoom": 0,
+              "maxzoom": 22
+            }]
+        },
+        // 'mapbox://styles/mapbox/streets-v10', //hosted style id; 
+        //others: 
+        //  'mapbox://styles/mapbox/light-v10'
+        //  'mapbox://styles/mapbox/streets-v10' 
+        //  'mapbox://styles/mapbox/dark-v10'
+        //  'mapbox://styles/mapbox/outdoors-v10'  
+        //  'mapbox://styles/mapbox/satellite-v10' 
+        //  'mapbox://styles/mapbox/traffic-night-v2'
+        center: [-72.8685, 46.5895], // change starting position to coordinates associated w/ your data.
+        zoom: 2 // starting zoom
+        });
+
+        map.on('load', function () {
+          map.addSource('custom.geo.json', {
+            type: 'geojson',
+            data: 'https://raw.githubusercontent.com/mconard/mapbox-workshop/master/custom.geo.json'
+          });
+          map.addLayer({
+            'id': 'Custom JSON',
+            'type': 'fill',
+            'source': 'custom.geo.json',
+            'layout': {
+            'visibility': 'visible'
+          },
+            'paint': {
+              'fill-color': "#3399FF",
+              'fill-opacity': 0.5}	});
+        });
+
+        var toggleableLayerIds = [ 'Custom JSON', 'Other' ];
+          for (var i = 0; i < toggleableLayerIds.length; i++) {
+            var id = toggleableLayerIds[i];
+
+            var link = document.createElement('a');
+              link.href = '#';
+              link.className = 'active';
+              link.textContent = id;
+
+            link.onclick = function (e) {
+              var clickedLayer = this.textContent;
+              e.preventDefault();
+              e.stopPropagation();
+
+            var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
+
+            if (visibility === 'visible') {
+              map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+              this.className = '';
+              } 
+            else {
+              this.className = 'active';
+              map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+              }
+            };
+
+            var layers = document.getElementById('menu');
+              layers.appendChild(link);
+          }
+        </script>
+        </body>
